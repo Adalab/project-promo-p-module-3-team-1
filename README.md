@@ -1,1 +1,1 @@
-# project-promo-p-module-3-team-1
+# React starter kit
