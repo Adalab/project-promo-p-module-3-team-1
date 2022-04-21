@@ -4,25 +4,57 @@ import { useState } from 'react';
 
 function App() {
   const [collapseDesign, setCollapseDesign] = useState('');
-  const [collapseFill, setCollapseFill] = useState('');
-  const [collapseShare, setCollapseShare] = useState('');
+  const [collapseFill, setCollapseFill] = useState('collapsed');
+  const [collapseShare, setCollapseShare] = useState('collapsed');
+  const [dataForm, setDataForm] = useState({
+    palette: '1',
+    name: '',
+    job: '',
+    email: '',
+    phone: '',
+    linkedin: '',
+    github: '',
+    photo: '',
+  });
+
+  const handleChange = (ev) => {
+    console.log('holis');
+    const inputValue = ev.target.value;
+    const inputChange = ev.target.name;
+    setDataForm({
+      ...dataForm,
+      [inputChange]: inputValue,
+    });
+  };
 
   const handleCollapse = (event) => {
     const idCollapse = event.currentTarget.id;
     if (idCollapse === 'id-design') {
-      collapseDesign === 'collapsed'
-        ? setCollapseDesign('')
-        : setCollapseDesign('collapsed');
+      if (collapseDesign === 'collapsed') {
+        setCollapseDesign('');
+        setCollapseFill('collapsed');
+        setCollapseShare('collapsed');
+      } else {
+        setCollapseDesign('collapsed');
+      }
     }
     if (idCollapse === 'id-fill') {
-      collapseFill === 'collapsed'
-        ? setCollapseFill('')
-        : setCollapseFill('collapsed');
+      if (collapseFill === 'collapsed') {
+        setCollapseFill('');
+        setCollapseDesign('collapsed');
+        setCollapseShare('collapsed');
+      } else {
+        setCollapseFill('collapsed');
+      }
     }
     if (idCollapse === 'id-share') {
-      collapseShare === 'collapsed'
-        ? setCollapseShare('')
-        : setCollapseShare('collapsed');
+      if (collapseShare === 'collapsed') {
+        setCollapseShare('');
+        setCollapseFill('collapsed');
+        setCollapseDesign('collapsed');
+      } else {
+        setCollapseShare('collapsed');
+      }
     }
   };
   return (
@@ -47,7 +79,7 @@ function App() {
             <article className="container__cards">
               <div className="card__text">
                 <h2 className="cards__name js__preview_name">
-                  Nombre Apellido
+                  {dataForm.name || 'Nombre Apellido'}
                 </h2>
                 <p className="cards__job js__preview_job">
                   Front-end developer
@@ -118,6 +150,7 @@ function App() {
                     name="palette"
                     value="1"
                     checked
+                    onChange={handleChange}
                   />
                   <div className="form__values">
                     <div className="form__color form__color--1"></div>
@@ -132,6 +165,7 @@ function App() {
                     type="radio"
                     name="palette"
                     value="2"
+                    onChange={handleChange}
                   />
                   <div className="form__values">
                     <div className="form__color form__color--4"></div>
@@ -146,6 +180,7 @@ function App() {
                     type="radio"
                     name="palette"
                     value="3"
+                    onChange={handleChange}
                   />
                   <div className="form__values">
                     <div className="form__color form__color--7"></div>
@@ -179,6 +214,8 @@ function App() {
                   type="text"
                   name="name"
                   id="Nombre completo"
+                  value={dataForm.name}
+                  onChange={handleChange}
                 />
               </div>
               <div className="form__items">
@@ -189,6 +226,8 @@ function App() {
                   type="text"
                   name="job"
                   id="Puesto"
+                  value={dataForm.job}
+                  onChange={handleChange}
                 />
               </div>
               <div className="form__items">
@@ -221,6 +260,7 @@ function App() {
                   type="email"
                   name="email"
                   id="email"
+                  onChange={handleChange}
                 />
               </div>
               <div className="form__items">
@@ -231,6 +271,7 @@ function App() {
                   type="tel"
                   name="phone"
                   id="tel"
+                  onChange={handleChange}
                 />
               </div>
               <div className="form__items">
@@ -241,6 +282,7 @@ function App() {
                   type="text"
                   name="linkedin"
                   id="Linkedin"
+                  onChange={handleChange}
                 />
               </div>
               <div className="form__items">
@@ -251,6 +293,7 @@ function App() {
                   type="text"
                   name="github"
                   id="Github"
+                  onChange={handleChange}
                 />
               </div>
             </div>
