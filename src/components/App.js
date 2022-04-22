@@ -18,7 +18,6 @@ function App() {
   });
 
   const handleChange = (ev) => {
-    console.log('holis');
     const inputValue = ev.target.value;
     const inputChange = ev.target.name;
     setDataForm({
@@ -70,7 +69,7 @@ function App() {
       </header>
 
       <main className="main2">
-        <section className="preview js_preview">
+        <section className={`preview palette-${dataForm.palette}`}>
           <div>
             <button className="preview__reset js__btnreset" type="button">
               <i className="fa-regular fa-trash-can"></i>
@@ -147,7 +146,7 @@ function App() {
                     type="radio"
                     name="palette"
                     value="1"
-                    checked
+                    checked={dataForm.palette === '1'}
                     onChange={handleChange}
                   />
                   <div className="form__values">
@@ -163,6 +162,7 @@ function App() {
                     type="radio"
                     name="palette"
                     value="2"
+                    checked={dataForm.palette === '2'}
                     onChange={handleChange}
                   />
                   <div className="form__values">
@@ -178,6 +178,7 @@ function App() {
                     type="radio"
                     name="palette"
                     value="3"
+                    checked={dataForm.palette === '3'}
                     onChange={handleChange}
                   />
                   <div className="form__values">
