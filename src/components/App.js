@@ -82,7 +82,7 @@ function App() {
                   {dataForm.name || 'Nombre Apellido'}
                 </h2>
                 <p className="cards__job js__preview_job">
-                  Front-end developer
+                  {dataForm.job || 'Frontend Developer'}
                 </p>
                 <div className="rectangle"></div>
               </div>
@@ -92,29 +92,27 @@ function App() {
               <div className="cards__logos">
                 <a
                   className="cards__logos--redes js__preview_phone"
-                  href=""
-                  target=""
+                  href={`tel:${dataForm.phone}`}
                 >
                   <i className="fa-solid fa-mobile-screen-button links"></i>
                 </a>
                 <a
                   className="cards__logos--redes js__preview_email"
-                  href=""
-                  target=""
+                  href={`mailto:${dataForm.email}`}
                 >
                   <i className="fa-regular fa-envelope links"></i>
                 </a>
                 <a
                   className="cards__logos--redes js__preview_linkedin"
-                  href=""
-                  target=""
+                  href={dataForm.linkedin}
+                  target="_blank"
                 >
                   <i className="fa-brands fa-linkedin-in links"></i>
                 </a>
                 <a
                   className="cards__logos--redes js__preview_github"
-                  href=""
-                  target=""
+                  href={dataForm.github}
+                  target="_blank"
                 >
                   <i className="fa-brands fa-github-alt links"></i>
                 </a>
@@ -260,6 +258,7 @@ function App() {
                   type="email"
                   name="email"
                   id="email"
+                  value={dataForm.email}
                   onChange={handleChange}
                 />
               </div>
