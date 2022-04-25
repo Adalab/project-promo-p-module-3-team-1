@@ -2,7 +2,7 @@
   "name": "react-starter-kit",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Adalab/project-promo-p-module-3-team-1",
+  "homepage": "http://Adalab.github.io/project-promo-p-module-3-team-1",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
