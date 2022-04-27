@@ -2,6 +2,8 @@ import '../styles/main.scss';
 import logo from '../images/logo.svg';
 import { useState } from 'react';
 import dataApi from '../services/api';
+import CardPreview from './CardPreview';
+
 function App() {
   const [collapseDesign, setCollapseDesign] = useState('');
   const [collapseFill, setCollapseFill] = useState('collapsed');
@@ -105,48 +107,7 @@ function App() {
               <i className="fa-regular fa-trash-can"></i>
               <span className="cards__reset--text">Reset</span>
             </button>
-            <article className="container__cards">
-              <div className="card__text">
-                <h2 className="cards__name js__preview_name">
-                  {dataForm.name || 'Nombre Apellido'}
-                </h2>
-                <p className="cards__job js__preview_job">
-                  {dataForm.job || 'Frontend Developer'}
-                </p>
-                <div className="rectangle"></div>
-              </div>
-
-              <div className="cards__img js__profile-preview"></div>
-
-              <div className="cards__logos">
-                <a
-                  className="cards__logos--redes js__preview_phone"
-                  href={`tel:${dataForm.phone}`}
-                >
-                  <i className="fa-solid fa-mobile-screen-button links"></i>
-                </a>
-                <a
-                  className="cards__logos--redes js__preview_email"
-                  href={`mailto:${dataForm.email}`}
-                >
-                  <i className="fa-regular fa-envelope links"></i>
-                </a>
-                <a
-                  className="cards__logos--redes js__preview_linkedin"
-                  href={dataForm.linkedin}
-                  target="_blank"
-                >
-                  <i className="fa-brands fa-linkedin-in links"></i>
-                </a>
-                <a
-                  className="cards__logos--redes js__preview_github"
-                  href={dataForm.github}
-                  target="_blank"
-                >
-                  <i className="fa-brands fa-github-alt links"></i>
-                </a>
-              </div>
-            </article>
+            <CardPreview data={dataForm} />
           </div>
         </section>
 
