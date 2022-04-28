@@ -1,3 +1,5 @@
+import '../styles/CardPreview.scss';
+
 const CardPreview = (props) => {
   return (
     <article className="container__cards">
