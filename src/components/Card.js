@@ -1,10 +1,9 @@
-import CardPreview from "./CardPreview";
+import CardPreview from './CardPreview';
 import logo from '../images/logo.svg';
 
-
-const Card = (props) =>  {
-return (
-<>
+const Card = (props) => {
+  return (
+    <>
       <header className="header">
         <a href="#">
           <img
@@ -26,7 +25,7 @@ return (
               <i className="fa-regular fa-trash-can"></i>
               <span className="cards__reset--text">Reset</span>
             </button>
-            <CardPreview data={dataForm} />
+            {/*<CardPreview data={dataForm} />*/}
           </div>
         </section>
 
@@ -44,7 +43,9 @@ return (
               <i className="fa-solid fa-angle-down form__legend__icon2"></i>
             </legend>
 
-            <div className={`form__content js__context ${collapseDesign}`}>
+            <div
+              className={`form__content js__context ${props.collapseDesign}`}
+            >
               <div className="form__label">
                 <label htmlFor="palette">COLORES</label>
               </div>
@@ -56,7 +57,7 @@ return (
                     type="radio"
                     name="palette"
                     value="1"
-                    checked={dataForm.palette === '1'}
+                    checked={props.dataForm.palette === '1'}
                     onChange={handleChange}
                   />
                   <div className="form__values">
@@ -72,7 +73,7 @@ return (
                     type="radio"
                     name="palette"
                     value="2"
-                    checked={dataForm.palette === '2'}
+                    checked={props.dataForm.palette === '2'}
                     onChange={handleChange}
                   />
                   <div className="form__values">
@@ -88,7 +89,7 @@ return (
                     type="radio"
                     name="palette"
                     value="3"
-                    checked={dataForm.palette === '3'}
+                    checked={props.dataForm.palette === '3'}
                     onChange={handleChange}
                   />
                   <div className="form__values">
@@ -114,7 +115,7 @@ return (
               <i className="fa-solid fa-angle-down form__legend__icon2"></i>
             </legend>
 
-            <div className={`js__form js__allInputs ${collapseFill}`}>
+            <div className={`js__form js__allInputs ${props.collapseFill}`}>
               <div className="form__items">
                 <label htmlFor="Nombre Completo">Nombre completo</label>
                 <input
@@ -123,7 +124,7 @@ return (
                   type="text"
                   name="name"
                   id="Nombre completo"
-                  value={dataForm.name}
+                  value={props.dataForm.name}
                   onChange={handleChange}
                 />
               </div>
@@ -135,7 +136,7 @@ return (
                   type="text"
                   name="job"
                   id="Puesto"
-                  value={dataForm.job}
+                  value={props.dataForm.job}
                   onChange={handleChange}
                 />
               </div>
@@ -169,7 +170,7 @@ return (
                   type="email"
                   name="email"
                   id="email"
-                  value={dataForm.email}
+                  value={props.dataForm.email}
                   onChange={handleChange}
                 />
               </div>
@@ -181,7 +182,7 @@ return (
                   type="tel"
                   name="phone"
                   id="tel"
-                  value={dataForm.phone}
+                  value={props.dataForm.phone}
                   onChange={handleChange}
                 />
               </div>
@@ -193,7 +194,7 @@ return (
                   type="text"
                   name="linkedin"
                   id="Linkedin"
-                  value={dataForm.linkedin}
+                  value={props.dataForm.linkedin}
                   onChange={handleChange}
                 />
               </div>
@@ -205,7 +206,7 @@ return (
                   type="text"
                   name="github"
                   id="Github"
-                  value={dataForm.github}
+                  value={props.dataForm.github}
                   onChange={handleChange}
                 />
               </div>
@@ -225,7 +226,7 @@ return (
               <i className="fa-solid fa-angle-down form__legend__icon2"></i>
             </legend>
 
-            <div className={`js__contextshare ${collapseShare}`}>
+            <div className={`js__contextshare ${props.collapseShare}`}>
               <div className="form__contextcreate">
                 <button
                   onClick={handleClickCreate}
@@ -265,10 +266,7 @@ return (
         </a>
       </footer>
     </>
-
-
-);
-
-}
+  );
+};
 
 export default Card;

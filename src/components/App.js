@@ -4,7 +4,6 @@ import { useState } from 'react';
 import dataApi from '../services/api';
 import Card from './Card';
 
-
 function App() {
   const [collapseDesign, setCollapseDesign] = useState('');
   const [collapseFill, setCollapseFill] = useState('collapsed');
@@ -86,7 +85,12 @@ function App() {
 
   // RETURN DE APP
   return (
-    <Card dataForm = {dataForm}/>
+    <Card
+      dataForm={dataForm}
+      collapseDesign={collapseDesign}
+      collapseFill={collapseFill}
+      collapseShare={collapseShare}
+    />
   );
 }
 
