@@ -20,8 +20,7 @@ function App() {
   });
   const [apiUrl, setApiUrl] = useState({});
 
-  const handleClickCreate = (event) => {
-    event.preventDefault();
+  const handleClickCreate = () => {
     console.log('está entrando');
     dataApi(dataForm).then((info) => {
       setApiUrl(info);
@@ -29,17 +28,18 @@ function App() {
     });
   };
 
-  const handleChange = (ev) => {
-    const inputValue = ev.target.value;
-    const inputChange = ev.target.name;
+  const handleChange = (inputValueOriginal, inputNameOriginal) => {
+    const inputValue = inputValueOriginal;
+    const inputChange = inputNameOriginal;
     setDataForm({
       ...dataForm,
       [inputChange]: inputValue,
     });
   };
 
-  const handleCollapse = (event) => {
-    const idCollapse = event.currentTarget.id;
+  const handleCollapse = (legendId) => {
+    const idCollapse = legendId;
+
     if (idCollapse === 'id-design') {
       if (collapseDesign === 'collapsed') {
         setCollapseDesign('');
@@ -70,7 +70,6 @@ function App() {
   };
 
   const handleReset = (ev) => {
-    ev.preventDefault();
     setDataForm({
       palette: '1',
       name: '',
@@ -90,6 +89,11 @@ function App() {
       collapseDesign={collapseDesign}
       collapseFill={collapseFill}
       collapseShare={collapseShare}
+      apiUrl={apiUrl}
+      handleReset={handleReset}
+      handleCollapse={handleCollapse}
+      handleChange={handleChange}
+      handleClickCreate={handleClickCreate}
     />
   );
 }
