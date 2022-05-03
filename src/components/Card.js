@@ -2,7 +2,8 @@ import CardPreview from './CardPreview';
 import Design from './Design';
 import Fill from './Fill';
 import Share from './Share';
-import logo from '../images/logo.svg';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Card = (props) => {
   // console.log('PROPS: ', props);
@@ -26,33 +27,25 @@ const Card = (props) => {
   return (
     <>
       {/* COMPONENTE */}
-      <header className='header'>
-        <a href='#'>
-          <img
-            className='header_img'
-            src={logo}
-            alt='Logo Awesome Profile Cards'
-          />
-        </a>
-      </header>
+      <Header />
 
-      <main className='main2'>
+      <main className="main2">
         <section className={`preview palette-${props.dataForm.palette}`}>
           <div>
             <button
-              className='preview__reset js__btnreset'
-              type='button'
+              className="preview__reset js__btnreset"
+              type="button"
               onClick={handleChangeReset}
             >
-              <i className='fa-regular fa-trash-can'></i>
-              <span className='cards__reset--text'>Reset</span>
+              <i className="fa-regular fa-trash-can"></i>
+              <span className="cards__reset--text">Reset</span>
             </button>
             {/* COMPONENTE */}
             <CardPreview data={props.dataForm} />
           </div>
         </section>
 
-        <form className='main2__form js__resetform js-formshare' action='#'>
+        <form className="main2__form js__resetform js-formshare" action="#">
           {/* COMPONENTE */}
           <Design
             handleChangeCollapse={handleChangeCollapse}
@@ -76,12 +69,7 @@ const Card = (props) => {
       </main>
 
       {/* COMPONENTE */}
-      <footer className='footer_adalab'>
-        <p className='footer_awesome'>Awesome profile-cards @2022</p>
-        <a target='_blank' href='https://adalab.es/' rel='noreferrer'>
-          <img className='footer_logo' src={logo} alt='Logo Adalab' />
-        </a>
-      </footer>
+      <Footer />
     </>
   );
 };
