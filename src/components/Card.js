@@ -51,12 +51,14 @@ const Card = (props) => {
             handleChangeCollapse={handleChangeCollapse}
             handleChangeOriginal={handleChangeOriginal}
             dataForm={props.dataForm}
+            collapseDesign={props.collapseDesign}
           />
           {/* COMPONENTE */}
           <Fill
             handleChangeCollapse={handleChangeCollapse}
             handleChangeOriginal={handleChangeOriginal}
             dataForm={props.dataForm}
+            collapseFill={props.collapseFill}
           />
 
           {/* COMPONENTE */}
@@ -64,6 +66,7 @@ const Card = (props) => {
             handleChangeCollapse={handleChangeCollapse}
             handleClickCreate={props.handleClickCreate}
             apiUrl={props.apiUrl}
+            collapseShare={props.collapseShare}
           />
         </form>
       </main>
