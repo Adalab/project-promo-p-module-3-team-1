@@ -8,6 +8,9 @@ function App() {
   const [collapseDesign, setCollapseDesign] = useState('');
   const [collapseFill, setCollapseFill] = useState('collapsed');
   const [collapseShare, setCollapseShare] = useState('collapsed');
+  const [rotateDesign, setRotateDesign] = useState('rotate');
+  const [rotateFill, setRotateFill] = useState('');
+  const [rotateShare, setRotateShare] = useState('');
   const [dataForm, setDataForm] = useState({
     palette: '1',
     name: '',
@@ -48,6 +51,13 @@ function App() {
       } else {
         setCollapseDesign('collapsed');
       }
+      if (rotateDesign === '') {
+        setRotateDesign('rotate');
+        setRotateFill('');
+        setRotateShare('');
+      } else {
+        setRotateDesign('');
+      }
     }
     if (idCollapse === 'id-fill') {
       if (collapseFill === 'collapsed') {
@@ -57,6 +67,13 @@ function App() {
       } else {
         setCollapseFill('collapsed');
       }
+      if (rotateFill === '') {
+        setRotateFill('rotate');
+        setRotateDesign('');
+        setRotateShare('');
+      } else {
+        setRotateFill('');
+      }
     }
     if (idCollapse === 'id-share') {
       if (collapseShare === 'collapsed') {
@@ -65,6 +82,13 @@ function App() {
         setCollapseDesign('collapsed');
       } else {
         setCollapseShare('collapsed');
+      }
+      if (rotateShare === '') {
+        setRotateShare('rotate');
+        setRotateFill('');
+        setRotateDesign('');
+      } else {
+        setRotateShare('');
       }
     }
   };
@@ -90,6 +114,9 @@ function App() {
       collapseFill={collapseFill}
       collapseShare={collapseShare}
       apiUrl={apiUrl}
+      rotateDesign={rotateDesign}
+      rotateFill={rotateFill}
+      rotateShare={rotateShare}
       handleReset={handleReset}
       handleCollapse={handleCollapse}
       handleChange={handleChange}
