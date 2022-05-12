@@ -3,8 +3,8 @@ import '../styles/main.scss';
 import { useState } from 'react';
 import dataApi from '../services/api';
 import Card from './Card';
-
-import Profile from './Profile';
+import { Routes, Route } from 'react-router-dom';
+import Landing from './Landing';
 
 function App() {
   const [collapseDesign, setCollapseDesign] = useState('');
@@ -116,23 +116,31 @@ function App() {
   // RETURN DE APP
   return (
     <>
-    <Card
-      dataForm={dataForm}
-      collapseDesign={collapseDesign}
-      collapseFill={collapseFill}
-      collapseShare={collapseShare}
-      apiUrl={apiUrl}
-      rotateDesign={rotateDesign}
-      rotateFill={rotateFill}
-      rotateShare={rotateShare}
-      handleReset={handleReset}
-      handleCollapse={handleCollapse}
-      handleChange={handleChange}
-      handleClickCreate={handleClickCreate}
-      avatar={avatar} updateAvatar={updateAvatar}
-    />
-   
-    
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route
+          path="/card"
+          element={
+            <Card
+              dataForm={dataForm}
+              collapseDesign={collapseDesign}
+              collapseFill={collapseFill}
+              collapseShare={collapseShare}
+              apiUrl={apiUrl}
+              rotateDesign={rotateDesign}
+              rotateFill={rotateFill}
+              rotateShare={rotateShare}
+              handleReset={handleReset}
+              handleCollapse={handleCollapse}
+              handleChange={handleChange}
+              handleClickCreate={handleClickCreate}
+              avatar={avatar}
+              updateAvatar={updateAvatar}
+            />
+          }
+        />
+      </Routes>
+      {/**/}
     </>
   );
 }
