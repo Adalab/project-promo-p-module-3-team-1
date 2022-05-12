@@ -4,6 +4,8 @@ import { useState } from 'react';
 import dataApi from '../services/api';
 import Card from './Card';
 
+import Profile from './Profile';
+
 function App() {
   const [collapseDesign, setCollapseDesign] = useState('');
   const [collapseFill, setCollapseFill] = useState('collapsed');
@@ -22,6 +24,11 @@ function App() {
     photo: 'data:image/png;base64,2342ba...',
   });
   const [apiUrl, setApiUrl] = useState({});
+  const [avatar, setAvatar] = useState('');
+
+  const updateAvatar = (avatar) => {
+    setAvatar(avatar);
+  };
 
   const handleClickCreate = () => {
     console.log('está entrando');
@@ -108,6 +115,7 @@ function App() {
 
   // RETURN DE APP
   return (
+    <>
     <Card
       dataForm={dataForm}
       collapseDesign={collapseDesign}
@@ -121,7 +129,11 @@ function App() {
       handleCollapse={handleCollapse}
       handleChange={handleChange}
       handleClickCreate={handleClickCreate}
+      avatar={avatar} updateAvatar={updateAvatar}
     />
+   
+    
+    </>
   );
 }
 
