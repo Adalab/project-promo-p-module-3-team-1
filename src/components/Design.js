@@ -47,25 +47,10 @@ const Design = (props) => {
             <div className='form__values'>
               <div className='form__color form__color--4'></div>
               <div className='form__color form__color--5'></div>
-              <div className='form__color form__color--16'></div>
+              <div className='form__color form__color--6'></div>
             </div>
           </div>
 
-          <div className='form__radios'>
-            <input
-              className='form__radio js_radio-3'
-              type='radio'
-              name='palette'
-              value='3'
-              checked={props.dataForm.palette === "3"}
-              onChange={props.handleChangeOriginal}
-            />
-            <div className='form__values'>
-              <div className='form__color form__color--7'></div>
-              <div className='form__color form__color--8'></div>
-              <div className='form__color form__color--9'></div>
-            </div>
-          </div>
           <div className='form__radios'>
             <input
               className='form__radio js_radio-3'
